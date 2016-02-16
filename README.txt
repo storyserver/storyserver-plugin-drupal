@@ -35,6 +35,8 @@ INSTALLATION
   * Install as you would normally install a contributed Drupal module. See:
     https://www.drupal.org/documentation/install/modules-themes/modules-7 for Drupal 7 modules and https://www.drupal.org/documentation/install/modules-themes/modules-8 for Drupal 8 for further information.
 
+  * NOTE: This module has Composer dependencies which must be installed with https://getcomposer.org/. Once composer is installed, change into the directory containing this module and run 'composer install'.
+
 
 CONFIGURATION
 ------------
