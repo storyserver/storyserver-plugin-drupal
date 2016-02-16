@@ -1,5 +1,5 @@
 name = StoryServer
-description = StoryServer module for communicating with the StoryServer API and retrieving stories.
+description = StoryServer field api module retrieving and displaying Storyserver stories.
 package = StoryServer
 configure = admin/config/storyserver/settings
 
