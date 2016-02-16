@@ -146,7 +146,7 @@ function storyserver_field_widget_form(&$form, &$form_state, $field, $instance, 
         '#attached' => array(
           'css' => array(
             array(
-              'data' => drupal_get_path('module', 'storyserver') . '/select2/select2.min.css',
+              'data' => drupal_get_path('module', 'storyserver') . '/js/select2.min.css',
               'type' => 'file',
             ),
             array(
@@ -156,7 +156,7 @@ function storyserver_field_widget_form(&$form, &$form_state, $field, $instance, 
           ),
           'js' => array(
             array(
-              'data' => drupal_get_path('module', 'storyserver') . '/select2/select2.min.js',
+              'data' => drupal_get_path('module', 'storyserver') . '/js/select2.min.js',
               'type' => 'file',
             ),
             array(
