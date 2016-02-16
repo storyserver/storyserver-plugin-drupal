@@ -1,0 +1,31 @@
+
+.ss-story-item {
+  margin-bottom: 1em;
+}
+
+.ss-story-item img {
+  display: block;
+  padding: 0 !important;
+  width: 100% !important;
+  box-shadow: none !important;
+}
+
+.ss-story-item-metadata {
+  padding: 8px;
+  background-color: #111;
+}
+
+.ss-story-item-metadata p {
+  margin: 0;
+  padding: 0;
+  color: #DDD;
+}
+
+.ss-story-item-metadata .title {
+  font-weight: bold;
+}
+
+.ss-story-item-metadata .date {
+  font-size: 0.85em;
+}
+

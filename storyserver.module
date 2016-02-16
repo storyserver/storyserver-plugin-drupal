@@ -1,0 +1,102 @@
+<?php
+
+/**
+ * @file
+ * StoryServer Story field module.
+ */
+
+module_load_include('php', 'storyserver', 'vendor/autoload');
+module_load_include('inc', 'storyserver', 'storyserver.admin');
+module_load_include('inc', 'storyserver', 'storyserver.api');
+module_load_include('inc', 'storyserver', 'storyserver.field');
+
+/**
+ * Implements hook_permission().
+ */
+function storyserver_permission() {
+  return array(
+    'admin storyserver' => array(
+      'title' => t('Administration StoryServer'),
+      'description' => t('Access StoryServer administration page.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function storyserver_menu() {
+
+  $items['admin/config/storyserver'] = array(
+    'title' => 'StoryServer',
+    'description' => 'Configuration settings for the StoryServer service',
+    'position' => 'left',
+    'weight' => -15,
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+
+  $items['admin/config/storyserver/settings'] = array(
+    'title' => "StoryServer Configuration",
+    'description' => 'Configuration settings for the StoryServer service.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('storyserver_admin_form'),
+    'access arguments' => array('admin storyserver'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'storyserver.admin.inc',
+  );
+
+  $items['storyserver/story_names'] = array(
+    'title' => "",
+    'page callback' => 'storyserver_get_story_names',
+    'access callback' => 'user_is_logged_in',
+    //'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'storyserver.api.inc',
+  );
+
+  return $items;
+}
+
+
+
+/**
+ * Implements hook_theme_registry_alter() and dynamically registers each of
+ * the StoryServer module themes in the themes directory.
+ * @param $theme_registry
+ */
+function storyserver_theme_registry_alter(&$theme_registry) {
+  $module_path = drupal_get_path('module', 'storyserver');
+  $directories = glob($module_path . '/themes/*', GLOB_ONLYDIR);
+  foreach ($directories as $directory) {
+    $template = $directory . '/story';
+    $theme    = 'storyserver_theme_' . basename($directory);
+
+    $theme_info = array(
+      'template'   => $template,
+      'variables' => array(
+        'story_id' => NULL,
+        'story_theme' => NULL,
+        'story' => NULL,
+        'safeJson' => NULL,
+        'appServer' => NULL,
+      ),
+      'type' => 'module',
+      'theme path' => $module_path,
+//     'path' => $module_path,
+    );
+
+    $theme_registry[$theme] = $theme_info;
+
+  }
+}
+
+/**
+ * Add jquery cookie support.
+ */
+function storyserver_init()
+{
+  drupal_add_library('system', 'jquery.cookie');
+}

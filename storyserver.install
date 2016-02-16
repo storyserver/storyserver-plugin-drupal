@@ -1,0 +1,36 @@
+<?php
+/**
+ * @file
+ * Install, update, and uninstall functions for the storyserver module.
+ */
+
+/**
+ * Implements hook_field_schema().
+ *
+ * Defines the database schema of the field, using the format used by the
+ * Schema API.
+ *
+ * This is a compound field with three fields.
+ *
+ *
+ * @see http://drupal.org/node/146939
+ * @see schemaapi
+ * @see hook_field_schema()
+ * @ingroup StoryServer
+ */
+function storyserver_field_schema($field) {
+  $columns = array(
+    'story_id' => array('type' => 'varchar', 'length' => 14, 'not null' => FALSE),
+    'story_name' => array('type' => 'varchar', 'length' => 128, 'not null' => FALSE),
+    'story_theme' => array('type' => 'varchar', 'length' => 20, 'not null' => FALSE),
+  );
+  $indexes = array(
+    'story_id' => array('story_id'),
+    'story_name' => array('story_name'),
+    'story_theme' => array('story_theme'),
+  );
+  return array(
+    'columns' => $columns,
+    'indexes' => $indexes,
+  );
+}

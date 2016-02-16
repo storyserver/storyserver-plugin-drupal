@@ -1,0 +1,8 @@
+name = StoryServer
+description = StoryServer module for communicating with the StoryServer API and retrieving stories.
+package = StoryServer
+configure = admin/config/storyserver/settings
+
+version = "7.x-2.0"
+core = "7.x"
+project = "storyserver"
