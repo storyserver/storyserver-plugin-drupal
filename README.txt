@@ -41,7 +41,7 @@ INSTALLATION
 CONFIGURATION
 ------------
   * Request a key pair from https://storyserver.io, and enter the key id and secret key in the configuration settings form.
-  * Edit and existing or new content type, and add the StoryServer custom field to the content type definition under 'managae fields'.
+  * Edit and existing or new content type, and add the StoryServer custom field to the content type definition under 'manage fields'.
   * When creating a new node, you can chose from a published story on storyserver.io, as well as a display theme.
 
 
