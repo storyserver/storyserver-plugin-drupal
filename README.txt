@@ -25,9 +25,9 @@ Drupal 7 and 8 modules provide field API integration via a custom StoryServer fi
 REQUIREMENTS
 ------------
 
-This module requires the the Guzzle HTTP client library.
+This module requires the StoryServer PHP client library.
 
-  * Instructions for Guzzle coming soon.
+  * See the composer installation instructions below.
 
 INSTALLATION
 ------------
