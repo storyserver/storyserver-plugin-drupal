@@ -11,9 +11,9 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
- StoryServer is an online image and metadata publishing service designed to serve relatively small collections of curated images, or stories. StoryServer is ideally suited for publishing editorials, galleries, portfolios, and other short visual narratives.
+StoryServer is an online image and metadata publishing service designed to serve relatively small collections of curated images, or stories. StoryServer is ideally suited for publishing editorials, galleries, portfolios, and other short visual narratives.
 
- Drupal 7 and 8 modules provide field API integration via a custom StoryServer field and field formatters. The modules connect to the StoryServer API via a configured key pair. The contrib modules are stable, however, StoryServer itself is in an early beta stage of development, which means that we're not ready to open our doors just yet. Feel free to request an invitation and we'll send an invite and registration details for an early release of StoryServer when it's ready.
+Drupal 7 and 8 modules provide field API integration via a custom StoryServer field and field formatters. The modules connect to the StoryServer API via a configured key pair. The contrib modules are stable, however, StoryServer itself is in an early beta stage of development, which means that we're not ready to open our doors just yet. Feel free to request an invitation and we'll send an invite and registration details for an early release of StoryServer when it's ready.
 
   * For a full description of the module, visit the project page:
     https://www.drupal.org/sandbox/blue_waters/2669382
@@ -25,7 +25,7 @@ INTRODUCTION
 REQUIREMENTS
 ------------
 
-  This module requires the the Guzzle HTTP client library.
+ This module requires the the Guzzle HTTP client library.
 
   * Instructions for Guzzle coming soon.
 
