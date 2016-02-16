@@ -1,52 +1,59 @@
-/*Adminimal theme overrides*/
+/*Admin theme overrides*/
 
-.field-widget-storyserver-story-widget {
+.field--widget-storyserver-story-widget fieldset {
+  border: 3px solid #0074BD;
+}
+
+.field--widget-storyserver-story-widget fieldset:not(.fieldgroup) {
   background-color: #cbe3ff;
 }
 
-.field-widget-storyserver-story-widget fieldset {
-  border: 3px solid #0074BD;
-  padding: 0;
-}
-
-/* Reset the seven theme field legend*/
-.field-widget-storyserver-story-widget fieldset legend .fieldset-legend {
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-.field-widget-storyserver-story-widget fieldset legend {
+.field--widget-storyserver-story-widget fieldset legend {
   background: transparent;
-  font-size: 14px;
   position: absolute;
   display: block;
-  padding: 8px 0 8px 37px;
-  margin: 10px 0 0 7px;
+  padding: 8px 0 8px 28px;
+  margin-left: -2px;
   background-image: url(images/storyserver-logo.png) !important;
   background-size: 20px 35px !important;
   background-repeat: no-repeat !important;
-  background-position: 8px 0;
+  background-position: left;
 }
 
-.storyserver-theme.form-select {
-  font-size: 14px;
-  height: 22px;
+.field--widget-storyserver-story-widget .fieldset-wrapper {
+  margin-top: 30px;
 }
 
-.field-widget-storyserver-story-widget .fieldset-wrapper {
-  margin-top: 50px;
-}
-
-.field-widget-storyserver-story-widget .storyserver-id {
-  min-width: 200px;
+.field--widget-storyserver-story-widget .storyserver-id {
+  min-width: 250px;
 }
 
 .select2-container--default .select2-selection--single {
-  border: 1px solid #CCC;
+  color: #222;
   box-sizing: border-box;
   padding: 0;
-  border-radius: 0;
+  border: 1px solid #a6a6a6;
+  border-radius: 0.143em;
+  background: -webkit-linear-gradient(top, #f6f6f3, #e7e7df);
+  background: -moz-linear-gradient(top, #f6f6f3, #e7e7df);
+  background: linear-gradient(top, #f6f6f3, #e7e7df);
+  text-shadow: 0 1px hsla(0, 0%, 100%, 0.6);
+  font-size: 0.875rem;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-font-smoothing: antialiased;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+  color: #222;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #222 transparent transparent transparent;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #222;
 }
 
 .select2-dropdown {
@@ -100,6 +107,9 @@
 }
 
 .storyserver-remove-story {
+  border-radius: 0 !important;
+  text-shadow: none !important;
+  margin: 0 !important;
   color: #FFF !important;
   background: #b73939 !important;
   transition: all, 0.3s;

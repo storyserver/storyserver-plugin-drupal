@@ -1,0 +1,9 @@
+name: StoryServer
+type: module
+description: 'StoryServer module for communicating with the StoryServer API and displaying photo stories.'
+package: StoryServer
+configure: storyserver.settings
+version: '8.x-1.0'
+core: '8.x'
+project: 'storyserver'
+

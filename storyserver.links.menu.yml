@@ -1,0 +1,5 @@
+storyserver.settings:
+  title: StoryServer
+  description: 'Configure StoryServer'
+  route_name: storyserver.settings
+  parent: system.admin_config_ui

@@ -1,6 +1,7 @@
 (function($) {
   Drupal.behaviors.storyServerSelect = {
     attach: function (context, settings) {
+      // Only execute the body of this function if this is the first page load (and not an Ajax call)
       if(context && context.doctype) {
         var host = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
         var $select = $(".storyserver-id");
@@ -41,11 +42,10 @@
                 // alter the remote JSON data, except to indicate that infinite
                 // scrolling can be used
                 params.page = params.page || 1;
-
                 return {
-                  results: data.items,
+                  results: data.data.items,
                   pagination: {
-                    more: (params.page * 30) < data.total
+                    more: (params.page * 30) < data.data.items.total
                   }
                 };
               },

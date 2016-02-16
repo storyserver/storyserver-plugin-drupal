@@ -3,14 +3,26 @@
   <div id="ss-story">
 
     <div class="ss-story-items">
-      <?php foreach ($story->data->items->data as $item): ?>
-      <div class="ss-story-item" id="<?=$item->data->image_id?>">
-        <a class="ss-story-item-link" data-id="<?=$item->data->image_id?>"
-           href="someserver.com/stories/<?=$story->data->id ?>#!/<?=$item->data->image_id?>">
-          <img class="ss-story-item-thumbnail" width="350" height="350" src="<?=$item->data->formats->thumbnail->uri?>" title="<?=$item->data->title?>" alt="<?=$item->data->title?>">
-        </a>
+      {% for item in story.data.items.data %}
+      <div class="ss-story-item" id="{{ item.data.image_id }}">
+        <div class="ss-story-item-image-frame {{ item.data.orientation }}">
+          <div class="ss-story-item-image-cell">
+            <a class="ss-story-item-link" data-id="{{ item.data.image_id }}"
+               href="someserver.com/stories/{{ story.data.id  }}#!/{{ item.data.image_id }}">
+              <img class="ss-story-item-thumbnail" src="{{ item.data.formats.thumbnail.uri }}">
+            </a>
+          </div>
+        </div>
+        <div class="ss-story-item-metadata">
+          <h2 class="ss-story-item-title">{{ item.data.title }}</h2>
+          <p class="ss-story-item-description">{{ item.data.description }}</p>
+          <ul class="ss-story-item-copyright-date">
+            <li class="ss-story-item-copyright">{{ item.data.copyright }}</li>
+            <li class="ss-story-item-date">{{ item.data.date }}</li>
+          </ul>
+        </div>
       </div>
-      <?php endforeach ?>
+      {% endfor %}
     </div>
 
     <div id="ss-story-preview" class="ss-story-preview">
@@ -47,15 +59,9 @@
     </div>
   </div>
 </div>
-
 <script>
-  (function($) {
-    storyServer.init(
-      {
-        el: 'ss-story',
-        appServer: '<?=$appServer?>',
-        json: '<?=$safeJson?>'
-      }
-    );
-  }(jQuery));
+var storyServerSettings = {
+  appServer: '{{ appServer }}',
+  json: '{{ safeJson|raw }}'
+};
 </script>

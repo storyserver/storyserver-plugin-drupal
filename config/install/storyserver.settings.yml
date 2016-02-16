@@ -1,0 +1,3 @@
+storyserver_key_id: ''
+storyserver_secret_key: ''
+storyserver_api_server: 'https://storyserver.io/api/v1'

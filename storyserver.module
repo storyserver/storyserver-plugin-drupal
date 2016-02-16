@@ -1,70 +1,8 @@
 <?php
 
 /**
- * @file
- * StoryServer Story field module.
- */
-
-module_load_include('php', 'storyserver', 'vendor/autoload');
-module_load_include('inc', 'storyserver', 'storyserver.admin');
-module_load_include('inc', 'storyserver', 'storyserver.api');
-module_load_include('inc', 'storyserver', 'storyserver.field');
-
-/**
- * Implements hook_permission().
- */
-function storyserver_permission() {
-  return array(
-    'admin storyserver' => array(
-      'title' => t('Administration StoryServer'),
-      'description' => t('Access StoryServer administration page.'),
-    ),
-  );
-}
-
-/**
- * Implements hook_menu().
- */
-function storyserver_menu() {
-
-  $items['admin/config/storyserver'] = array(
-    'title' => 'StoryServer',
-    'description' => 'Configuration settings for the StoryServer service',
-    'position' => 'left',
-    'weight' => -15,
-    'page callback' => 'system_admin_menu_block_page',
-    'access arguments' => array('access administration pages'),
-    'file' => 'system.admin.inc',
-    'file path' => drupal_get_path('module', 'system'),
-  );
-
-  $items['admin/config/storyserver/settings'] = array(
-    'title' => "StoryServer Configuration",
-    'description' => 'Configuration settings for the StoryServer service.',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('storyserver_admin_form'),
-    'access arguments' => array('admin storyserver'),
-    'type' => MENU_NORMAL_ITEM,
-    'file' => 'storyserver.admin.inc',
-  );
-
-  $items['storyserver/story_names'] = array(
-    'title' => "",
-    'page callback' => 'storyserver_get_story_names',
-    'access callback' => 'user_is_logged_in',
-    //'access arguments' => array('access content'),
-    'type' => MENU_CALLBACK,
-    'file' => 'storyserver.api.inc',
-  );
-
-  return $items;
-}
-
-
-
-/**
- * Implements hook_theme_registry_alter() and dynamically registers each of
- * the StoryServer module themes in the themes directory.
+ * Implements hook_theme_registry_alter()
+ * Dynamically register each of the available StoryServer themes.
  * @param $theme_registry
  */
 function storyserver_theme_registry_alter(&$theme_registry) {
@@ -85,7 +23,6 @@ function storyserver_theme_registry_alter(&$theme_registry) {
       ),
       'type' => 'module',
       'theme path' => $module_path,
-//     'path' => $module_path,
     );
 
     $theme_registry[$theme] = $theme_info;
@@ -94,9 +31,17 @@ function storyserver_theme_registry_alter(&$theme_registry) {
 }
 
 /**
- * Add jquery cookie support.
+ * Restrict the number of storyserver_story field instances per node to 1
+ * @param $form
+ * @param $form_state
+ * @param $form_id
  */
-function storyserver_init()
-{
-  drupal_add_library('system', 'jquery.cookie');
+function storyserver_form_field_storage_config_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $entity = $form_state->getFormObject()->getEntity();
+  $type = $entity->getType();
+  if ($type == 'storyserver_story') {
+    $form['cardinality_container']['cardinality']['#options'] = array(1);
+    $form['cardinality_container']['cardinality']['#default_value'] = 1;
+    $form['cardinality_container']['cardinality']['#disabled'] = TRUE;
+  }
 }

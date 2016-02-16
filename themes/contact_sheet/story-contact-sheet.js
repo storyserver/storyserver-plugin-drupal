@@ -434,3 +434,13 @@ var storyServer = (function(core, $) {
   return core;
 
 }(storyServer, jQuery));
+
+(function($) {
+  storyServer.init(
+    {
+      el: 'ss-story',
+      appServer: storyServerSettings.appServer,
+      json: storyServerSettings.json
+    }
+  );
+}(jQuery));

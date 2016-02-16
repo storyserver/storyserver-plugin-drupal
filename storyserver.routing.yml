@@ -1,0 +1,17 @@
+storyserver.settings:
+  path: '/admin/config/user-interface/storyserver'
+  defaults:
+    _form: '\Drupal\storyserver\Form\StoryserverSettingsForm'
+    _title: 'StoryServer Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+storyserver.names:
+  path: 'storyserver/story_names'
+  defaults:
+    _controller: '\Drupal\storyserver\Controller\StoryServerController::storyNames'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+
+

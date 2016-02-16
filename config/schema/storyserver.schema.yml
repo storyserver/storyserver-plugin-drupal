@@ -1,0 +1,10 @@
+storyserver.settings:
+  type: mapping
+  label: 'StoryServer Settings'
+  mapping:
+    storyserver_key_id:
+      type: string
+    storyserver_secret_key:
+      type: string
+    storyserver_api_server:
+      type: string

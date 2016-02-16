@@ -1,7 +1,7 @@
 
 {
-  "name": "storyserver/drupal7",
-  "description": "StoryServer Drupal 7 module.",
+  "name": "storyserver/drupal8",
+  "description": "StoryServer Drupal 8 module.",
   "type": "library",
   "minimum-stability": "stable",
   "license": "GPL-2.0",

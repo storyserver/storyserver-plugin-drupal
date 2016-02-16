@@ -1,0 +1,50 @@
+select2:
+  remote: https://github.com/select2/select2
+  version: "4.0.1"
+  license:
+      name: MIT
+      gpl-compatible: false
+  css:
+    base:
+      select2/select2.min.css: { minified: true }
+  js:
+    select2/select2.js: {}
+  dependencies:
+    - core/jquery
+
+storyserver-widget:
+  version: "1.0.0"
+  css:
+    component:
+      css/storyserver_widget.css: {}
+  js:
+    js/storyserver_select.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - storyserver/select2
+
+storyserver-theme-big_picture:
+  version: "1.0.0"
+  css:
+    component:
+      themes/big_picture/story.css: {}
+  js:
+    themes/big_picture/story.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+storyserver-theme-contact_sheet:
+  version: "1.0.0"
+  css:
+    component:
+      themes/contact_sheet/story.css: {}
+  js:
+    themes/contact_sheet/detect-swipe.min.js: { minified: true }
+    themes/contact_sheet/spin.min.js: { minified: true }
+    themes/contact_sheet/story-core.js: {}
+    themes/contact_sheet/story-contact-sheet.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
