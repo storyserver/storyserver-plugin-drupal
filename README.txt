@@ -49,7 +49,7 @@ INSTALLATION
 
   * NOTE: This module has Composer dependencies which must be installed with
     https://getcomposer.org/. Once composer is installed, change into the
-    directory containing this module and run 'composer install'.
+    directory containing this module and run 'composer install --no-dev'.
 
 
 CONFIGURATION
