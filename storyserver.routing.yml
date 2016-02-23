@@ -1,7 +1,7 @@
 storyserver.settings:
   path: '/admin/config/user-interface/storyserver'
   defaults:
-    _form: '\Drupal\storyserver\Form\StoryserverSettingsForm'
+    _form: '\Drupal\storyserver\Form\StoryServerSettingsForm'
     _title: 'StoryServer Settings'
   requirements:
     _permission: 'administer site configuration'
