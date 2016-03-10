@@ -116,7 +116,7 @@ class Client {
     $result = $this->clientRequest($this->storyServer . '/stories/' . $this->keyId . '/names', $query);
     return [
       "data" => $result['data'],
-      "body" => $result['body']
+      "raw" => $result['raw']
     ];
   }
 
