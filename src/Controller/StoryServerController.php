@@ -7,11 +7,10 @@
 
 namespace Drupal\storyserver\Controller;
 
-module_load_include('php', 'storyserver', 'vendor/autoload');
-
-use StoryServer\Client;
+use Drupal\storyserver\Client\Client;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
 /**
@@ -19,6 +18,32 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  * @package Drupal\storyserver\Controller
  */
 class StoryServerController extends ControllerBase {
+
+
+  /**
+   * Http client
+   *
+   * @var \GuzzleHttp\Client
+   */
+  protected $httpClient;
+
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(\GuzzleHttp\Client $client) {
+    $this->httpClient = $client;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('http_client')
+    );
+  }
+
 
   /**
    * StoryServer story names lookup from the StoryServer API server.
@@ -36,7 +61,7 @@ class StoryServerController extends ControllerBase {
       'secretKey' => $secretKey,
       'formats' => '',
       'appServer'=> ''
-    ]);
+    ], $this->httpClient);
 
     if (!empty($_GET['storyname'])) {
       $q = $_GET['storyname'];
@@ -74,7 +99,7 @@ class StoryServerController extends ControllerBase {
       'secretKey' => $secretKey,
       'formats' => $formats,
       'appServer'=> ''
-    ]);
+    ], $this->httpClient);
 
     $result = null;
     try {

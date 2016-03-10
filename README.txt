@@ -34,7 +34,8 @@ when it's ready.
 REQUIREMENTS
 ------------
 
-This module requires the StoryServer PHP client library.
+The Drupal 7 version of this module installs the StoryServer PHP client library
+via composer.
 
   * See the composer installation instructions below.
 
@@ -47,9 +48,9 @@ INSTALLATION
     https://www.drupal.org/documentation/install/modules-themes/modules-8
     for Drupal 8 modules.
 
-  * NOTE: This module has Composer dependencies which must be installed with
-    https://getcomposer.org/. Once composer is installed, change into the
-    directory containing this module and run 'composer install --no-dev'.
+  * NOTE: The the Drupal 7 module has Composer dependencies which must be
+    installed with https://getcomposer.org/. Once composer is installed,
+    change into the directory containing this module and run 'composer install'.
 
 
 CONFIGURATION

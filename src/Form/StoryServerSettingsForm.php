@@ -6,7 +6,6 @@
 
 namespace Drupal\storyserver\Form;
 
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\ConfigFormBase;
 
@@ -34,7 +33,6 @@ class StoryServerSettingsForm extends ConfigFormBase {
       '#type' => 'fieldset',
       '#collapsible' => FALSE,
       '#title' => t("StoryServer API settings"),
-
       'keyId' => array(
         '#type' => 'textfield',
         '#title' => $this->t('Key ID'),
@@ -44,7 +42,6 @@ class StoryServerSettingsForm extends ConfigFormBase {
         '#size' => 30,
         '#maxlength' => 24,
       ),
-
       'secretKey' => array(
         '#type' => 'textfield',
         '#title' => $this->t("Secret Key"),
@@ -54,7 +51,6 @@ class StoryServerSettingsForm extends ConfigFormBase {
         '#size' => 66,
         '#maxlength' => 64,
       ),
-
       'apiServer' => array(
         '#type' => 'textfield',
         '#title' => $this->t("StoryServer Server"),
@@ -101,3 +97,4 @@ class StoryServerSettingsForm extends ConfigFormBase {
   }
 }
 ?>
+
